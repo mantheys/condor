@@ -1,0 +1,42 @@
+# HTCondor submission script
+
+notify_user  = smanthey@cern.ch
+notification = Never
+# Never, Error, Complete, Always
+
+##--------------------------##
+
+## universe means "job type"
+## The universe defines an execution environment. You will almost always use VANILLA. 
+## http://research.cs.wisc.edu/htcondor/manual/v7.8/2_4Road_map_Running.html#SECTION00341200000000000000
+
+universe = vanilla
+
+##--------------------------##
+
+## User definded variables
+GEO         = dune10kt_1x2x6_legacy
+GEN         = prodmarley_wbkg
+PATH        = /eos/user/s/smanthey/mc01/$(GEO)/$(GEN)
+
+## Main executable and arguments
+executable  = /afs/cern.ch/work/s/smanthey/submit/ana/$(GEO)/sh_$(GEN)_$(GEO).sh
+arguments   = $(ClusterID) $(ProcId)
+
+output               = log/$(GEN)_$(GEO)_$(ClusterId)-$(ProcId).out
+error                = log/$(GEN)_$(GEO)_$(ClusterId)-$(ProcId).error
+log                  = log/$(GEN)_$(GEO)_$(ClusterId)-$(ProcId).log 
+output_destination   = root://eosuser.cern.ch/$(PATH)/$(ClusterId)-$(ProcId)/
+MY.XRDCP_CREATE_DIR  = True
+
+## computing to reserve
+## request_cpus   = 1
+## request_disk   = 10 GB
+## request_memory = 8 GB
+
+##--------------------------##
+
++JobFlavour = "longlunch"
+# espresso = 20 minutes, microcentury = 1 hour, longlunch  = 2 hours, workday  = 8 hours, tomorrow  = 1 day, testmatch = 3 days, nextweek = 1 week
+
+queue 1000
