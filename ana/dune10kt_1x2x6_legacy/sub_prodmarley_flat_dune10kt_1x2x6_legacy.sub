@@ -20,7 +20,7 @@ GEN         = prodmarley_flat
 PATH        = /eos/user/s/smanthey/mc01/$(GEO)/$(GEN)
 
 ## Main executable and arguments
-executable  = /afs/cern.ch/work/s/smanthey/submit/ana/$(GEO)/sh_$(GEN)_$(GEO).sh
+executable  = /afs/cern.ch/work/s/smanthey/scripts/condor/ana/$(GEO)/sh_$(GEN)_$(GEO).sh
 arguments   = $(ClusterID) $(ProcId)
 
 output               = log/$(GEN)_$(GEO)_$(ClusterId)-$(ProcId).out

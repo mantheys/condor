@@ -20,7 +20,7 @@ GEN         = prodmarley_wbkg
 PATH        = /eos/user/s/smanthey/mc01/$(GEO)/$(GEN)
 
 ## Main executable and arguments
-executable  = /afs/cern.ch/work/s/smanthey/submit/ana/$(GEO)/sh_$(GEN)_$(GEO).sh
+executable  = /afs/cern.ch/work/s/smanthey/scripts/condor/ana/$(GEO)/sh_$(GEN)_$(GEO).sh
 arguments   = $(ClusterID) $(ProcId)
 
 output               = log/$(GEN)_$(GEO)_$(ClusterId)-$(ProcId).out
@@ -36,7 +36,7 @@ MY.XRDCP_CREATE_DIR  = True
 
 ##--------------------------##
 
-+JobFlavour = "tomorrow"
++JobFlavour = "microcentury"
 # espresso = 20 minutes, microcentury = 1 hour, longlunch  = 2 hours, workday  = 8 hours, tomorrow  = 1 day, testmatch = 3 days, nextweek = 1 week
 
-queue 1000
+queue 10000

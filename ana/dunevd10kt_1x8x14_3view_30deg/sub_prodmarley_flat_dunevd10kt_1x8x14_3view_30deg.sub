@@ -17,10 +17,10 @@ universe = vanilla
 ## User definded variables
 GEO         = dunevd10kt_1x8x14_3view_30deg
 GEN         = prodmarley_flat
-PATH        = /eos/user/s/smanthey/mc10/$(GEO)/$(GEN)
+PATH        = /eos/user/s/smanthey/mc01/$(GEO)/$(GEN)
 
 ## Main executable and arguments
-executable  = /afs/cern.ch/work/s/smanthey/submit/ana/$(GEO)/sh_$(GEN)_$(GEO).sh
+executable  = /afs/cern.ch/work/s/smanthey/scripts/condor/ana/$(GEO)/sh_$(GEN)_$(GEO).sh
 arguments   = $(ClusterID) $(ProcId)
 
 output               = log/$(GEN)_$(GEO)_$(ClusterId)-$(ProcId).out
